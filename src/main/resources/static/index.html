@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">LIBRARY MANAGEMENT</p>
+      <h1>Your library, organized.</h1>
+      <p class="subtitle">Add books, check availability, and manage your collection.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>Add a book</h2>
+          <p>Enter the book details below.</p>
+        </div>
+      </div>
+      <form id="bookForm">
+        <div class="form-grid">
+          <label>Book title
+            <input id="title" name="title" required maxlength="150" placeholder="e.g. The Alchemist">
+          </label>
+          <label>Author
+            <input id="author" name="author" required maxlength="120" placeholder="e.g. Paulo Coelho">
+          </label>
+          <label>ISBN
+            <input id="isbn" name="isbn" required maxlength="40" placeholder="Enter unique ISBN">
+          </label>
+          <label>Availability
+            <select id="availability" name="availability">
+              <option value="true">Available</option>
+              <option value="false">Not available</option>
+            </select>
+          </label>
+        </div>
+        <button class="primary" type="submit">Add book</button>
+        <p id="message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="books-heading">
+        <div>
+          <h2>Book collection</h2>
+          <p id="bookCount">Loading books…</p>
+        </div>
+        <button class="secondary" id="refreshButton" type="button">Refresh</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>ISBN</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="bookTable">
+            <tr><td colspan="5" class="empty">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <p class="footnote">Demo version: books are kept in temporary memory and reset when the app restarts.</p>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
